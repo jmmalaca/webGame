@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>My_F***_Game_xD</title>
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+		<link rel="Stylesheet" href="css/ui-lightness/jquery-ui-1.7.2.custom.css" type="text/css" />
+		<script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery-ui-1.7.2.custom.min.js"></script>
+		<script type="text/javascript" src="scripts/pecasJogo.js"></script>
+		<script type="text/javascript" src="scripts/celulas.js"></script>
+		<script type="text/javascript" src="scripts/tabuleiro.js"></script>
+		<script type="text/javascript" src="scripts/loading.js"></script>
+		<script type="text/javascript" src="scripts/ControlGame.js"></script>
+		<script type="text/javascript">
+
+			//criar a progressBar 
+			var progBar = progressBar();
+		
+			$(document).ready(function(){
+				//esconder botao START
+				$("div.botaoStart").hide();
+				//clicar no botao para jogar 1 jogo
+				$("div.botaoStart").live("click",function(){
+					//hide progressBar
+					$('div#progressBar').slideUp();
+					//init fundo
+					$("div.stage").slideDown();
+					//hide botao Start
+					$("div.botaoStart").hide();
+
+					//init stage
+					stage.numeros();
+					stage.letras();
+					stage.tabuleiro();
+
+				});
+
+				progBar.start();
+				progBar.update();
+				
+			});
+
+			//criar o stage
+			var stage = tabuleiro();
+			progBar.update();
+			
+		</script>
+	</head>
+
+	<body>
+		<div id="backg" class="background">
+			<div id="progressBar" class="progBar"></div>
+			
+			<div id="palco" class="stage">
+				<div id="tab" class="tabuleiro"></div>
+				<div id="pointsTable" class="pointT">
+					-Table-
+				</div>
+			</div>
+			
+			<div id="but" class="botaoStart">-Start-</div>
+		</div>
+	</body>
+</html>
